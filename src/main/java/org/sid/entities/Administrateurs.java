@@ -5,20 +5,31 @@ import java.io.Serializable;
 public class Administrateurs implements Serializable{
 	
 	
+	private Long id_admin;
+
+	private String login;
+	
+	private String mtp;
+	
 	public Administrateurs() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Administrateurs(String login, String mtp) {
+	public Administrateurs(Long id_admin, String login, String mtp) {
 		super();
+		this.id_admin = id_admin;
 		this.login = login;
 		this.mtp = mtp;
 	}
 
-	private String login;
-	
-	private String mtp;
+	public Long getId_admin() {
+		return id_admin;
+	}
+
+	public void setId_admin(Long id_admin) {
+		this.id_admin = id_admin;
+	}
 
 	public String getLogin() {
 		return login;

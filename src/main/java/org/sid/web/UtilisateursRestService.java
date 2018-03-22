@@ -2,6 +2,10 @@ package org.sid.web;
 
 import java.util.List;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 import org.sid.dao.UtilisateursRepository;
 import org.sid.entities.Utilisateurs;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,7 +66,13 @@ public class UtilisateursRestService {
 		return utilisateursRepository.chercher("%"+mc+"%",new PageRequest(page,size));
 		}
 	
+
+		
+		
+	
 	
 	
 
 }
+	
+

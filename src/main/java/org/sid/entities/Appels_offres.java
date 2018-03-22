@@ -5,8 +5,7 @@ import java.util.Date;
 
 public class Appels_offres implements Serializable{
 	
-	private Long id_prestataire;
-	private String nom;
+	private Long id_appelOffre;
 	private String description;
 	private String Raison_Social;
 	private Long effectif;
@@ -24,8 +23,7 @@ public class Appels_offres implements Serializable{
 	public Appels_offres(Long id_prestataire, String nom, String description, String raison_Social, Long effectif,
 			String fonction, Date date_depot, Date date_fin) {
 		super();
-		this.id_prestataire = id_prestataire;
-		this.nom = nom;
+		this.id_appelOffre = id_prestataire;
 		this.description = description;
 		Raison_Social = raison_Social;
 		this.effectif = effectif;
@@ -35,18 +33,13 @@ public class Appels_offres implements Serializable{
 	}
 
 
-	public Long getId_prestataire() {
-		return id_prestataire;
+	public Long getId_appelOffre() {
+		return id_appelOffre;
 	}
-	public void setId_prestataire(Long id_prestataire) {
-		this.id_prestataire = id_prestataire;
+	public void setId_appelOffre(Long id_prestataire) {
+		this.id_appelOffre = id_prestataire;
 	}
-	public String getNom() {
-		return nom;
-	}
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
+	
 	public String getDescription() {
 		return description;
 	}
