@@ -1,6 +1,9 @@
 package org.sid.entities;
 
 import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.OneToMany;
 
 public class Services implements Serializable{
 
@@ -8,6 +11,10 @@ public class Services implements Serializable{
 	
 	private String nom;
 
+	@OneToMany(mappedBy="Appels_offres")
+	List<Appels_offres> appels_offres;
+	
+	
 	public Services() {
 		super();
 		// TODO Auto-generated constructor stub

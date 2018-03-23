@@ -1,6 +1,9 @@
 package org.sid.entities;
 
 import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.OneToMany;
 
 public class Logiciels implements Serializable{
 
@@ -8,6 +11,8 @@ public class Logiciels implements Serializable{
 	
 	private String nom;
 
+	@OneToMany(mappedBy="Appels_offres")
+	List<Appels_offres> appels_offres;
 	
 	public Logiciels() {
 		super();

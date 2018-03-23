@@ -1,6 +1,9 @@
 package org.sid.entities;
 
 import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.OneToMany;
 
 public class Infrastrecture implements Serializable{
 	
@@ -9,6 +12,9 @@ public class Infrastrecture implements Serializable{
 	private Long id_infrastrecture;
 
 	private String nom;
+	
+	@OneToMany(mappedBy="Appels_offres")
+	List<Appels_offres> appels_offres;
 	
 	public Infrastrecture() {
 		super();

@@ -1,6 +1,11 @@
 package org.sid.entities;
 
 import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 public class prestataires implements Serializable{
 	
@@ -19,6 +24,21 @@ public class prestataires implements Serializable{
 	private String num_societe;
 	
 	private String mtp_pres;
+	
+	@ManyToOne
+	@JoinColumn(name="id_abonnement")
+	private Abonnement abonnement;
+	
+	@OneToMany(mappedBy="Appels_offres")
+	List<Appels_offres> appels_offres;
+	
+	@ManyToOne
+	@JoinColumn(name="id_CahierCharge")
+	private cahier_charge cahier_charge;
+	
+	@ManyToOne
+	@JoinColumn(name="id_role")
+	private Role role;
 
 	
 	public prestataires() {

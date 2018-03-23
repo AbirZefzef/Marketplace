@@ -2,6 +2,9 @@ package org.sid.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
+import javax.persistence.OneToMany;
 
 public class Abonnement implements Serializable{
 	
@@ -14,6 +17,9 @@ public class Abonnement implements Serializable{
 	private Date debut_abonnement;
 	
 	private Date fin_abonnement;
+	
+	@OneToMany(mappedBy="prestataires")
+	List<prestataires> administrateurs;
 	
 	
 

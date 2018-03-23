@@ -1,6 +1,9 @@
 package org.sid.entities;
 
 import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.OneToMany;
 
 public class Role implements Serializable{
 	
@@ -10,6 +13,9 @@ public class Role implements Serializable{
 	private Long id_role;
 	
 	private String nom_role;
+	
+	@OneToMany(mappedBy="prestataires")
+	List<prestataires> prestataires;
 	
 	public Role() {
 		super();

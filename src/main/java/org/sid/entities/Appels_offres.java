@@ -3,16 +3,44 @@ package org.sid.entities;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
 public class Appels_offres implements Serializable{
 	
 	private Long id_appelOffre;
+	
 	private String description;
+	
 	private String Raison_Social;
+	
 	private Long effectif;
+	
 	private String fonction;
+	
 	private Date date_depot;
+	
 	private Date date_fin;
 	
+	@ManyToOne
+	@JoinColumn(name="id_infrastrecture")
+	private Infrastrecture infrastrecture;
+	
+	@ManyToOne
+	@JoinColumn(name="id_logiciels")
+	private Logiciels logiciel;
+
+	@ManyToOne
+	@JoinColumn(name="id_service")
+	private Services services;
+	
+	@ManyToOne
+	@JoinColumn(name="id_prestataire")
+	private prestataires prestataires;
+	
+	@OneToOne(mappedBy = "cahier_charge")
+	private cahier_charge cahier_charge;
 	
 	public Appels_offres() {
 		super();

@@ -2,6 +2,9 @@ package org.sid.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 public class Administrateurs implements Serializable{
 	
 	
@@ -10,6 +13,9 @@ public class Administrateurs implements Serializable{
 	private String login;
 	
 	private String mtp;
+	
+	
+	
 	
 	public Administrateurs() {
 		super();
