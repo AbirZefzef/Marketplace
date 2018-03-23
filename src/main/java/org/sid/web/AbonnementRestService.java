@@ -2,11 +2,9 @@ package org.sid.web;
 
 import java.util.List;
 
-import org.hibernate.Query;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import org.sid.dao.AbonnementRepository;
 import org.sid.entities.Abonnement;
+import org.sid.entities.Utilisateurs;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -55,20 +53,15 @@ public class AbonnementRestService {
 		return abonnementRepository.save(a);
 	}
 	///////////////////chercher les abonnements///////////////////////////////
-	@RequestMapping(value="/Chercher",method=RequestMethod.GET)
+	@RequestMapping(value="/Chercher_abonnement",method=RequestMethod.GET)
 	@ResponseBody
 	public Page<Abonnement> chercher(
-					@RequestParam(name="mc",defaultValue="")String mc,
-					@RequestParam(name="page",defaultValue="0")int page,
-					@RequestParam(name="size",defaultValue="30")int size
-										){
+		@RequestParam(name="mc",defaultValue="")String mc,
+		@RequestParam(name="page",defaultValue="0")int page,
+		@RequestParam(name="size",defaultValue="30")int size
+							){
 		return abonnementRepository.chercher("%"+mc+"%",new PageRequest(page,size));
-		
-		
-	
-	
-	
+									}
 
-}
 	
 }

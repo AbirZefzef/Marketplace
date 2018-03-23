@@ -3,13 +3,22 @@ package org.sid.entities;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
-public class Appels_offres implements Serializable{
+
+@Entity
+public class AppelsOffres implements Serializable{
 	
+	@Id
+	@GeneratedValue
 	private Long id_appelOffre;
+	
+	private String titre;
 	
 	private String description;
 	
@@ -39,19 +48,20 @@ public class Appels_offres implements Serializable{
 	@JoinColumn(name="id_prestataire")
 	private prestataires prestataires;
 	
-	@OneToOne(mappedBy = "cahier_charge")
+	@OneToOne(mappedBy = "appelsOffres")
 	private cahier_charge cahier_charge;
 	
-	public Appels_offres() {
+	public AppelsOffres() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
 	
-	public Appels_offres(Long id_prestataire, String nom, String description, String raison_Social, Long effectif,
+	public AppelsOffres(Long id_prestataire, String nom, String description, String raison_Social, Long effectif,
 			String fonction, Date date_depot, Date date_fin) {
 		super();
 		this.id_appelOffre = id_prestataire;
+		this.titre=nom;
 		this.description = description;
 		Raison_Social = raison_Social;
 		this.effectif = effectif;
@@ -66,6 +76,15 @@ public class Appels_offres implements Serializable{
 	}
 	public void setId_appelOffre(Long id_prestataire) {
 		this.id_appelOffre = id_prestataire;
+	}
+	
+	public String getTitre() {
+		return titre;
+	}
+
+
+	public void setTitre(String nom) {
+		this.titre = nom;
 	}
 	
 	public String getDescription() {

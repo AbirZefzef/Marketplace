@@ -2,12 +2,18 @@ package org.sid.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+
+@Entity
 public class Administrateurs implements Serializable{
 	
-	
+	@Id
+	@GeneratedValue
 	private Long id_admin;
 
 	private String login;

@@ -2,9 +2,6 @@ package org.sid.web;
 
 import java.util.List;
 
-import org.hibernate.Query;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import org.sid.dao.AdministrateursRepository;
 import org.sid.entities.Administrateurs;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,21 +51,16 @@ public class AdministrateurRestService {
 		a.setId_admin(id);
 		return administrateursRepository.save(a);
 	}
-	///////////////////chercher les abonnements///////////////////////////////
-	@RequestMapping(value="/Administrateurs",method=RequestMethod.GET)
-	@ResponseBody
-	public Page<Administrateurs> chercher(
-					@RequestParam(name="mc",defaultValue="")String mc,
-					@RequestParam(name="page",defaultValue="0")int page,
-					@RequestParam(name="size",defaultValue="30")int size
-										){
-		return administrateursRepository.chercher("%"+mc+"%",new PageRequest(page,size));
-		
-		
 	
-	
-	
-
+///////////////////chercher les Administrateur///////////////////////////////
+@RequestMapping(value="/Chercher_Administrateur",method=RequestMethod.GET)
+@ResponseBody
+public Page<Administrateurs> chercher(
+		@RequestParam(name="mc",defaultValue="")String mc,
+		@RequestParam(name="page",defaultValue="0")int page,
+		@RequestParam(name="size",defaultValue="30")int size
+							){
+return administrateursRepository.chercher("%"+mc+"%",new PageRequest(page,size));
 }
 	
 }

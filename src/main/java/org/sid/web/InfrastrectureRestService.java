@@ -2,9 +2,6 @@ package org.sid.web;
 
 import java.util.List;
 
-import org.hibernate.Query;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import org.sid.dao.InfrastrectureRepository;
 import org.sid.entities.Infrastrecture;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,21 +51,15 @@ public class InfrastrectureRestService {
 		i.setId_infrastrecture(id);
 		return infrastrectureRepository.save(i);
 	}
-	///////////////////chercher les abonnements///////////////////////////////
-	@RequestMapping(value="/Chercher",method=RequestMethod.GET)
-	@ResponseBody
-	public Page<Infrastrecture> chercher(
-					@RequestParam(name="mc",defaultValue="")String mc,
-					@RequestParam(name="page",defaultValue="0")int page,
-					@RequestParam(name="size",defaultValue="30")int size
-										){
-		return infrastrectureRepository.chercher("%"+mc+"%",new PageRequest(page,size));
-		
-		
 	
-	
-	
-
+///////////////////chercher les Infrastrectures///////////////////////////////
+@RequestMapping(value="/Chercher_Infrastrectures",method=RequestMethod.GET)
+@ResponseBody
+public Page<Infrastrecture> chercher(
+		@RequestParam(name="mc",defaultValue="")String mc,
+		@RequestParam(name="page",defaultValue="0")int page,
+		@RequestParam(name="size",defaultValue="30")int size
+							){
+return infrastrectureRepository.chercher("%"+mc+"%",new PageRequest(page,size));
 }
-	
 }

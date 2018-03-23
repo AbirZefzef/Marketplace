@@ -4,10 +4,18 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+
+@Entity
 public class Abonnement implements Serializable{
 	
+	
+	@Id
+	@GeneratedValue
 	private Long id_abonnement;
 	
 	private String nom;
@@ -18,8 +26,8 @@ public class Abonnement implements Serializable{
 	
 	private Date fin_abonnement;
 	
-	@OneToMany(mappedBy="prestataires")
-	List<prestataires> administrateurs;
+	@OneToMany(mappedBy="abonnement")
+	List<prestataires> prestataires;
 	
 	
 

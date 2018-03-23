@@ -56,7 +56,7 @@ public class UtilisateursRestService {
 		return utilisateursRepository.save(u);
 	}
 	///////////////////chercher les utilisateurs///////////////////////////////
-	@RequestMapping(value="/Chercher",method=RequestMethod.GET)
+	@RequestMapping(value="/Chercher_utilisateurs",method=RequestMethod.GET)
 	@ResponseBody
 	public Page<Utilisateurs> chercher(
 					@RequestParam(name="mc",defaultValue="")String mc,

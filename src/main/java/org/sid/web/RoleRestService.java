@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.sid.dao.RoleRepository;
 import org.sid.entities.Role;
+import org.sid.entities.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -54,21 +55,15 @@ public class RoleRestService {
 		r.setId_role(id);
 		return roleRepository.save(r);
 	}
-	///////////////////chercher les roles///////////////////////////////
-	@RequestMapping(value="/Chercher",method=RequestMethod.GET)
+	
+	///////////////////chercher les Role///////////////////////////////
+	@RequestMapping(value="/Chercher_Role",method=RequestMethod.GET)
 	@ResponseBody
 	public Page<Role> chercher(
-					@RequestParam(name="mc",defaultValue="")String mc,
-					@RequestParam(name="page",defaultValue="0")int page,
-					@RequestParam(name="size",defaultValue="30")int size
-										){
+		@RequestParam(name="mc",defaultValue="")String mc,
+		@RequestParam(name="page",defaultValue="0")int page,
+		@RequestParam(name="size",defaultValue="30")int size
+							){
 		return roleRepository.chercher("%"+mc+"%",new PageRequest(page,size));
-		
-		
-	
-	
-	
-
-}
-	
+				}
 }

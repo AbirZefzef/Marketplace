@@ -55,21 +55,7 @@ public class CahierChargeRestService {
 		c.setId_CahierCharge(id);
 		return cahier_chargeRepository.save(c);
 	}
-	///////////////////chercher les Cahier_charge///////////////////////////////
-	@RequestMapping(value="/ChercherCahier_charge",method=RequestMethod.GET)
-	@ResponseBody
-	public Page<cahier_charge> chercher(
-					@RequestParam(name="mc",defaultValue="")String mc,
-					@RequestParam(name="page",defaultValue="0")int page,
-					@RequestParam(name="size",defaultValue="30")int size
-										){
-		return cahier_chargeRepository.chercher("%"+mc+"%",new PageRequest(page,size));
-		
-		
 	
 	
-	
-
-}
 	
 }

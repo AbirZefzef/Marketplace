@@ -9,7 +9,6 @@ import org.springframework.data.repository.query.Param;
 
 public interface UtilisateursRepository extends JpaRepository<Utilisateurs, Long>{
 	
-	
 	@Query("select u from Utilisateurs u where u.nom like :mc")
 	public Page<Utilisateurs> chercher(@Param("mc")String mc,Pageable pageable);
 	

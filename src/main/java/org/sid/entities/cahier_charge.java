@@ -1,23 +1,29 @@
 package org.sid.entities;
 
 import java.io.Serializable;
-import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+
+@Entity
 public class cahier_charge implements Serializable{
 
-	
+	@Id
+	@GeneratedValue
 	private Long id_CahierCharge;
 	
-	@OneToMany(mappedBy="Appels_offres")
-	List<cahier_charge> cahier_charges;
+	@ManyToOne
+	@JoinColumn(name="id_prestataire")
+	private prestataires prestataires;
 	
-	    @OneToOne
-	    @JoinColumn(name = "id_appelOffre", nullable = false)
-	    private Appels_offres appels_offres;
+	@OneToOne
+	@JoinColumn(name = "id_appelOffre")
+	private AppelsOffres appelsOffres;
 	   
 	   
 

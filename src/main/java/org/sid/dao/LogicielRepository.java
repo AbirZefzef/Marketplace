@@ -9,8 +9,8 @@ import org.springframework.data.repository.query.Param;
 
 public interface LogicielRepository extends JpaRepository<Logiciels, Long>{
 	
-	
-	@Query("select l from Logiciel l where l.nom like :mc")
+	@Query("select l from Logiciels l where l.nom like :mc")
 	public Page<Logiciels> chercher(@Param("mc")String mc,Pageable pageable);
+	
 	
 }

@@ -2,9 +2,6 @@ package org.sid.web;
 
 import java.util.List;
 
-import org.hibernate.Query;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import org.sid.dao.PrestataireRepository;
 import org.sid.entities.prestataires;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +35,7 @@ public class PrestatairesRestService {
 		return prestataireRepository.findOne(id);
 	}
 	/////////////////enregistrer un nouveau prestataire///////////////////////////
-	@RequestMapping(value="/Abonnement",method=RequestMethod.POST)
+	@RequestMapping(value="/prestataires",method=RequestMethod.POST)
 	public prestataires save(@RequestBody prestataires p){
 		return prestataireRepository.save(p);
 	}
@@ -54,21 +51,16 @@ public class PrestatairesRestService {
 		p.setId_prestataire(id);
 		return prestataireRepository.save(p);
 	}
-	///////////////////chercher les prestataires///////////////////////////////
-	@RequestMapping(value="/Chercher",method=RequestMethod.GET)
-	@ResponseBody
-	public Page<prestataires> chercher(
-					@RequestParam(name="mc",defaultValue="")String mc,
-					@RequestParam(name="page",defaultValue="0")int page,
-					@RequestParam(name="size",defaultValue="30")int size
-										){
-		return prestataireRepository.chercher("%"+mc+"%",new PageRequest(page,size));
-		
-		
 	
-	
-	
-
+///////////////////chercher les Prestataires///////////////////////////////
+@RequestMapping(value="/Chercher_Prestataires",method=RequestMethod.GET)
+@ResponseBody
+public Page<prestataires> chercher(
+		@RequestParam(name="mc",defaultValue="")String mc,
+		@RequestParam(name="page",defaultValue="0")int page,
+		@RequestParam(name="size",defaultValue="30")int size
+							){
+return prestataireRepository.chercher("%"+mc+"%",new PageRequest(page,size));
 }
 	
 }

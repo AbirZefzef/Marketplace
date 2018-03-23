@@ -3,18 +3,23 @@ package org.sid.entities;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+@Entity
 public class Infrastrecture implements Serializable{
 	
 	
-
+	@Id
+	@GeneratedValue
 	private Long id_infrastrecture;
 
 	private String nom;
 	
-	@OneToMany(mappedBy="Appels_offres")
-	List<Appels_offres> appels_offres;
+	@OneToMany(mappedBy="infrastrecture")
+	List<AppelsOffres> appelsOffres;
 	
 	public Infrastrecture() {
 		super();

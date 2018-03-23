@@ -3,14 +3,20 @@ package org.sid.entities;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+
+@Entity
 public class prestataires implements Serializable{
 	
 	
-
+	@Id
+	@GeneratedValue
 	private Long id_prestataire;
 	
 	private String nom;
@@ -29,12 +35,11 @@ public class prestataires implements Serializable{
 	@JoinColumn(name="id_abonnement")
 	private Abonnement abonnement;
 	
-	@OneToMany(mappedBy="Appels_offres")
-	List<Appels_offres> appels_offres;
+	@OneToMany(mappedBy="prestataires")
+	List<AppelsOffres> appelsOffres;
 	
-	@ManyToOne
-	@JoinColumn(name="id_CahierCharge")
-	private cahier_charge cahier_charge;
+	@OneToMany(mappedBy = "prestataires")
+	private List<cahier_charge> cahier_charges;
 	
 	@ManyToOne
 	@JoinColumn(name="id_role")

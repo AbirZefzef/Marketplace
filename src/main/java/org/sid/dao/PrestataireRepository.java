@@ -9,8 +9,7 @@ import org.springframework.data.repository.query.Param;
 
 public interface PrestataireRepository extends JpaRepository<prestataires, Long>{
 	
-	
-	@Query("select p from Prestataire p where p.nom like :mc")
+	@Query("select p from prestataires p where p.nom like :mc")
 	public Page<prestataires> chercher(@Param("mc")String mc,Pageable pageable);
 	
 }

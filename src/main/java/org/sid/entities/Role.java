@@ -3,18 +3,23 @@ package org.sid.entities;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+@Entity
 public class Role implements Serializable{
 	
 	
 
-
+	@Id
+	@GeneratedValue
 	private Long id_role;
 	
 	private String nom_role;
 	
-	@OneToMany(mappedBy="prestataires")
+	@OneToMany(mappedBy="role")
 	List<prestataires> prestataires;
 	
 	public Role() {

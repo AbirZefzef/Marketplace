@@ -3,16 +3,23 @@ package org.sid.entities;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+
+@Entity
 public class Logiciels implements Serializable{
 
+	@Id
+	@GeneratedValue
 	private Long id_logiciels;
 	
 	private String nom;
 
-	@OneToMany(mappedBy="Appels_offres")
-	List<Appels_offres> appels_offres;
+	@OneToMany(mappedBy="logiciel")
+	List<AppelsOffres> appelsOffres;
 	
 	public Logiciels() {
 		super();

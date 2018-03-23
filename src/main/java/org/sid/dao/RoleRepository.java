@@ -10,7 +10,7 @@ import org.springframework.data.repository.query.Param;
 public interface RoleRepository extends JpaRepository<Role, Long>{
 	
 	
-	@Query("select r from Role r where r.nom like :mc")
+	@Query("select r from Role r where r.nom_role like :mc")
 	public Page<Role> chercher(@Param("mc")String mc,Pageable pageable);
 	
 

@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.sid.dao.LogicielRepository;
 import org.sid.entities.Logiciels;
+import org.sid.entities.Logiciels;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -55,21 +56,15 @@ public class LogicielRestService {
 		l.setId_logiciels(id);
 		return logicielRepository.save(l);
 	}
-	///////////////////chercher les Logiciels///////////////////////////////
-	@RequestMapping(value="/Chercher",method=RequestMethod.GET)
-	@ResponseBody
-	public Page<Logiciels> chercher(
-					@RequestParam(name="mc",defaultValue="")String mc,
-					@RequestParam(name="page",defaultValue="0")int page,
-					@RequestParam(name="size",defaultValue="30")int size
-										){
-		return logicielRepository.chercher("%"+mc+"%",new PageRequest(page,size));
-		
-		
 	
-	
-	
-
+///////////////////chercher les Logiciels///////////////////////////////
+@RequestMapping(value="/Chercher_Logiciels",method=RequestMethod.GET)
+@ResponseBody
+public Page<Logiciels> chercher(
+		@RequestParam(name="mc",defaultValue="")String mc,
+		@RequestParam(name="page",defaultValue="0")int page,
+		@RequestParam(name="size",defaultValue="30")int size
+							){
+return logicielRepository.chercher("%"+mc+"%",new PageRequest(page,size));
 }
-	
 }
